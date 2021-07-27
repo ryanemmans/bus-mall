@@ -28,7 +28,6 @@
 // console.log('hello world');
 
 // ------------------------------------- Global Variables -------------------------------------  //
-let clickCounter = 0;
 const ulElem = document.getElementById('results');
 const voteSectionElem = document.getElementById('all_products');
 const productAImgElem = document.getElementById('product_A_img');
@@ -42,44 +41,49 @@ let productA = null;
 let productB = null;
 let productC = null;
 
+let clickCounter = 25;
+
 // ------------------------------------- Constructor -------------------------------------  //
 function Product(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
   this.views = 0;
   this.votes = 0;
-
-  Product.allProducts.push(this);
+  // Technically this function should not do external processes. It is made to define features of a 'product'
 }
 
 Product.allProducts = [];
 
-
 // ------------------------------------- Prototype Methods -------------------------------------  //
+
 Product.prototype.renderProduct = function (img, h2) {
   img.src = this.imgPath;
+  img.alt = this.name;
   h2.textContent = this.name;
+  this.views++;
 };
 
 // ------------------------------------- Standard Global Functions -------------------------------------  //
 function getThreeProducts() {
-  let indexA = Math.floor(Math.random() * Product.allProducts.length);
-  productA = Product.allProducts[indexA];
-  let indexB = Math.floor(Math.random() * Product.allProducts.length);
-  productB = Product.allProducts[indexB];
-  let indexC = Math.floor(Math.random() * Product.allProducts.length);
-  productC = Product.allProducts[indexC];
-  while (productB === null || productB === productA || productB === productC) {
-    indexB = Math.floor(Math.random() * Product.allProducts.length);
+  const doNotUse = [productA, productB, productC];
+  while (doNotUse.includes(productA)) {
+    let indexA = Math.floor(Math.random() * Product.allProducts.length);
+    productA = Product.allProducts[indexA];
+  }
+  doNotUse.push(productA);
+
+  while (doNotUse.includes(productB)) {
+    let indexB = Math.floor(Math.random() * Product.allProducts.length);
     productB = Product.allProducts[indexB];
   }
-  while (productC === null || productC === productA || productC === productB) {
-    indexC = Math.floor(Math.random() * Product.allProducts.length);
+  doNotUse.push(productB);
+
+  while (doNotUse.includes(productC)) {
+    let indexC = Math.floor(Math.random() * Product.allProducts.length);
     productC = Product.allProducts[indexC];
   }
-  Product.allProducts[indexA].views++;
-  Product.allProducts[indexB].views++;
-  Product.allProducts[indexC].views++;
+  doNotUse.push(productC);
+  console.log(doNotUse);
 }
 
 function renderAllProducts() {
@@ -92,15 +96,67 @@ function renderResults() {
   ulElem.textContent = '';
   for (let product of Product.allProducts) {
     let liElem = document.createElement('li');
-    liElem.textContent = `${product.name}: ${product.votes} votes, ${product.views} views`;
+    liElem.textContent = `${product.name}: ${product.votes} Votes, ${product.views} Views`;
     ulElem.appendChild(liElem);
   }
 }
 
+function makeProductChart() {
+  const ctx = document.getElementById('productChart').getContext('2d');
+  let productNames = [];
+  let productViews = [];
+  let productVotes = [];
+  // let colorArray = [];
+  for (let product of Product.allProducts) {
+    productNames.push(product.name);
+    productViews.push(product.views);
+    productVotes.push(product.votes);
+  }
+
+  // for (let i = 0; i < Product.allProducts.length; i++) {
+  //   if (i % 2 === 0) { // modulo divides by zero checks for even or odd numbers with remainder
+  //     colorArray.push('blue');
+  //   } else {
+  //     colorArray.push('pink');
+  //   }
+  // }
+
+  const productChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: productNames,
+      datasets: [{
+        label: '# of Views',
+        data: productViews,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      },{
+        label: '# of Votes',
+        data: productVotes,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: [{
+        yAxes: {
+          beginAtZero: true
+        },
+        stacked: false
+      }],
+      xAxes: [{
+        stacked: false
+      }]
+    }
+  });
+}
+
 function handleClick(e) {
-  let imageClicked = e.target.id;
+  const imageClicked = e.target.id;
   if (imageClicked === 'product_A_img' || imageClicked === 'product_B_img' || imageClicked === 'product_C_img') {
-    clickCounter++;
+    clickCounter--;
     if (imageClicked === 'product_A_img') {
       productA.votes++;
     }
@@ -113,12 +169,15 @@ function handleClick(e) {
     getThreeProducts();
     renderAllProducts();
   }
-  if (clickCounter === 25) {
+  if (clickCounter === 0) {
+    voteSectionElem.removeEventListener('click', handleClick);
     alert('View Results');
     renderResults();
-    voteSectionElem.removeEventListener('click', handleClick);
+    makeProductChart();
   }
 }
+
+// BUTTON possibilities: hidden visibility, css class attribute, listener turn button on
 
 // ------------------------------------- Listener -------------------------------------  //
 
@@ -127,27 +186,46 @@ voteSectionElem.addEventListener('click', handleClick);
 
 // ------------------------------------- Call Functions -------------------------------------  //
 
-new Product('bag', './img/bag.jpg');
-new Product('banana', './img/banana.jpg');
-new Product('bathroom', './img/bathroom.jpg');
-new Product('boots', './img/boots.jpg');
-new Product('breakfast', './img/breakfast.jpg');
-new Product('bubblegum', './img/bubblegum.jpg');
-new Product('chair', './img/chair.jpg');
-new Product('cthulhu', './img/cthulhu.jpg');
-new Product('dog-duck', './img/dog-duck.jpg');
-new Product('dragon', './img/dragon.jpg');
-new Product('pen', './img/pen.jpg');
-new Product('pet-sweep', './img/pet-sweep.jpg');
-new Product('scissors', './img/scissors.jpg');
-new Product('shark', './img/shark.jpg');
-new Product('tauntaun', './img/tauntaun.jpg');
-new Product('unicorn', './img/unicorn.jpg');
-new Product('water-can', './img/water-can.jpg');
-new Product('wine-glass', './img/wine-glass.jpg');
-new Product('sweep', './img/sweep.png');
+Product.allProducts.push(new Product('Bag', './img/bag.jpg'));
+Product.allProducts.push(new Product('Banana', './img/banana.jpg'));
+Product.allProducts.push(new Product('Bathroom', './img/bathroom.jpg'));
+Product.allProducts.push(new Product('Boots', './img/boots.jpg'));
+Product.allProducts.push(new Product('Breakfast', './img/breakfast.jpg'));
+Product.allProducts.push(new Product('Bubblegum', './img/bubblegum.jpg'));
+Product.allProducts.push(new Product('Chair', './img/chair.jpg'));
+Product.allProducts.push(new Product('Cthulhu', './img/cthulhu.jpg'));
+Product.allProducts.push(new Product('Dog-Duck', './img/dog-duck.jpg'));
+Product.allProducts.push(new Product('Dragon', './img/dragon.jpg'));
+Product.allProducts.push(new Product('Pen', './img/pen.jpg'));
+Product.allProducts.push(new Product('Pet-Sweep', './img/pet-sweep.jpg'));
+Product.allProducts.push(new Product('Scissors', './img/scissors.jpg'));
+Product.allProducts.push(new Product('Shark', './img/shark.jpg'));
+Product.allProducts.push(new Product('Tauntaun', './img/tauntaun.jpg'));
+Product.allProducts.push(new Product('Unicorn', './img/unicorn.jpg'));
+Product.allProducts.push(new Product('Water-Can', './img/water-can.jpg'));
+Product.allProducts.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
+Product.allProducts.push(new Product('Sweep', './img/sweep.png'));
 
 getThreeProducts();
 renderAllProducts();
 
-console.log(Product.allProducts);
+// console.log(Product.allProducts);
+
+// ------------------------------------- Old Code -------------------------------------  //
+
+
+// let indexB = Math.floor(Math.random() * Product.allProducts.length);
+// productB = Product.allProducts[indexB];
+// let indexC = Math.floor(Math.random() * Product.allProducts.length);
+// productC = Product.allProducts[indexC];
+// while (productB === null || productB === productA || productB === productC) {
+//   indexB = Math.floor(Math.random() * Product.allProducts.length);
+//   productB = Product.allProducts[indexB];
+// }
+// while (productC === null || productC === productA || productC === productB) {
+//   indexC = Math.floor(Math.random() * Product.allProducts.length);
+//   productC = Product.allProducts[indexC];
+// }
+// Product.allProducts[indexA].views++;
+// Product.allProducts[indexB].views++;
+// Product.allProducts[indexC].views++;
