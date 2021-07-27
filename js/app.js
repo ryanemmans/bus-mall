@@ -26,7 +26,6 @@
 
 'use strict';
 // console.log('hello world');
-debugger;
 
 // ------------------------------------- Global Variables -------------------------------------  //
 let clickCounter = 0;
@@ -47,7 +46,7 @@ let productC = null;
 function Product(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
-  // this.views = 0;
+  this.views = 0;
   this.votes = 0;
 
   Product.allProducts.push(this);
@@ -57,7 +56,6 @@ Product.allProducts = [];
 
 
 // ------------------------------------- Prototype Methods -------------------------------------  //
-// I will tell the function which img elem and h2 elem I should use
 Product.prototype.renderProduct = function (img, h2) {
   img.src = this.imgPath;
   h2.textContent = this.name;
@@ -65,25 +63,23 @@ Product.prototype.renderProduct = function (img, h2) {
 
 // ------------------------------------- Standard Global Functions -------------------------------------  //
 function getThreeProducts() {
-  // picks 3 products at random from an array of products
   let indexA = Math.floor(Math.random() * Product.allProducts.length);
   productA = Product.allProducts[indexA];
   let indexB = Math.floor(Math.random() * Product.allProducts.length);
   productB = Product.allProducts[indexB];
   let indexC = Math.floor(Math.random() * Product.allProducts.length);
   productC = Product.allProducts[indexC];
-  // while (productA === null || productA === productB || productA === productC) {
-  //   productA = Math.floor(Math.random() * Product.allProducts.length);
-  //   productA = Product.allProducts[indexA];
-  // }
   while (productB === null || productB === productA || productB === productC) {
-    productB = Math.floor(Math.random() * Product.allProducts.length);
+    indexB = Math.floor(Math.random() * Product.allProducts.length);
     productB = Product.allProducts[indexB];
   }
   while (productC === null || productC === productA || productC === productB) {
-    productC = Math.floor(Math.random() * Product.allProducts.length);
+    indexC = Math.floor(Math.random() * Product.allProducts.length);
     productC = Product.allProducts[indexC];
   }
+  Product.allProducts[indexA].views++;
+  Product.allProducts[indexB].views++;
+  Product.allProducts[indexC].views++;
 }
 
 function renderAllProducts() {
@@ -96,7 +92,7 @@ function renderResults() {
   ulElem.textContent = '';
   for (let product of Product.allProducts) {
     let liElem = document.createElement('li');
-    liElem.textContent = `${product.name}: ${product.votes}`;
+    liElem.textContent = `${product.name}: ${product.votes} votes, ${product.views} views`;
     ulElem.appendChild(liElem);
   }
 }
@@ -107,21 +103,18 @@ function handleClick(e) {
     clickCounter++;
     if (imageClicked === 'product_A_img') {
       productA.votes++;
-      // console.log(productA);
     }
     if (imageClicked === 'product_B_img') {
       productB.votes++;
-      // console.log(productB);
     }
     if (imageClicked === 'product_C_img') {
       productC.votes++;
-      // console.log(productC);
     }
     getThreeProducts();
     renderAllProducts();
   }
-  if (clickCounter === 5) { // Change to 25 once everything works
-    // alert('show the product totals');
+  if (clickCounter === 25) {
+    alert('View Results');
     renderResults();
     voteSectionElem.removeEventListener('click', handleClick);
   }
@@ -130,6 +123,7 @@ function handleClick(e) {
 // ------------------------------------- Listener -------------------------------------  //
 
 voteSectionElem.addEventListener('click', handleClick);
+
 
 // ------------------------------------- Call Functions -------------------------------------  //
 
@@ -156,3 +150,5 @@ new Product('Baby Sweep', './img/sweep.png');
 
 getThreeProducts();
 renderAllProducts();
+
+console.log(Product.allProducts);

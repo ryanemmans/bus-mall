@@ -6,20 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bus Mall</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <!-- <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/module.css"> -->
+  <link rel="stylesheet" href="./css/themes.css">
 </head>
 <body>
   <header>
-    <!-- <img src="./img/bus2.jpg" alt="Bus Mall"> -->
+    <img src="./img/bus2.jpg" alt="Bus Mall">
     <h1>Bus Mall</h1>
-    <!-- <img src="./img/mean-girls.jpg" alt="Regina George"> -->
+    <img src="./img/mean-girls.jpg" alt="Regina George">
   </header>
-
+  
   <main>
-    <section>
+    <h2>Which product are you most likely to purchase?</h2>
+    <section id="all_products">
+      
+      <div id="productA"> 
+        <img id="product_A_img" src="./img/pet-sweep.jpg" alt="Product A">
+        <h2 id="product_A_h2">Pet Sweep</h2>
+      </div>
+
+      <div id="productB">
+        <img id="product_B_img" src="./img/shark.jpg" alt="Product B">
+        <h2 id="product_B_h2">Shark Sleeping Bag</h2>
+      </div>
+
+      <div id="productC">
+        <img id="product_C_img" src="./img/banana.jpg" alt="Product C">
+        <h2 id="product_C_h2">Banana Slicer</h2>
+      </div>
+    </section>
+    <!-- <div id="D"></div> -->
+    <aside>
+      <h2>Results</h2>
+      <!-- <button type="submit">View Results</button> -->
+      <!-- <div id="button"></div> -->
       <ul id="results">
-          <h2>Results</h2>
-        <li>bag : 0</li>
+        <!-- <li>bag : 0</li>
         <li>banana : 0</li>
         <li>bathroom : 0</li>
         <li>boots : 0</li>
@@ -37,33 +61,10 @@
         <li>tauntaun : 0</li>
         <li>unicorn : 0</li>
         <li>water-can : 0</li>
-        <li>wine-glass : 0</li>
+        <li>wine-glass : 0</li> -->
       </ul>
-    </section>
-
-    <section id="all_products">
-      <h1>Which product are you most likely to purchase?</h1>
-      
-      <div id="productA"> 
-        <img id="product_A_img" src="./img/pet-sweep.jpg" alt="Product A">
-        
-        <h2 id="product_A_h2">Pet Sweep</h2>
-      </div>
-
-      <div id="productB">
-        <img id="product_B_img" src="./img/shark.jpg" alt="Product B">
-        
-        <h2 id="product_B_h2">Shark Sleeping Bag</h2>
-      </div>
-
-      <div id="productC">
-        <img id="product_C_img" src="./img/banana.jpg" alt="Product C">
-        
-        <h2 id="product_C_h2">Banana Slicer</h2>
-      </div>
-    </section>
-
-    <article>
+    </aside>
+    <article id="E">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus ut impedit dignissimos numquam sunt reiciendis eligendi commodi dolores. Autem repellendus nihil ex dolor doloremque unde voluptatum iusto rem consectetur.</p>
 
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi accusantium corrupti suscipit voluptatem autem earum sit facere fugiat neque, optio magnam rerum dolores odio quod quos exercitationem alias a temporibus.</p>
@@ -73,8 +74,8 @@
   </main>
 
   <footer>
-    <h4>&#169; Code Fellows 2021<span></span>//<span></span><a href=" https://github.com/ryanemmans">Github
-        Portfolio</a><span></span>//<span></span><a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
+    <h4>&#169; Code Fellows 2021 // <a href=" https://github.com/ryanemmans">Github
+        Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
   </footer>
   <script src="./js/app.js"></script>
 </body>
