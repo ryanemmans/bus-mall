@@ -113,33 +113,32 @@ function makeProductChart() {
     productVotes.push(product.votes);
   }
 
-  // for (let i = 0; i < Product.allProducts.length; i++) {
-  //   if (i % 2 === 0) { // modulo divides by zero checks for even or odd numbers with remainder
-  //     colorArray.push('blue');
-  //   } else {
-  //     colorArray.push('pink');
-  //   }
-  // }
-
   const productChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: productNames,
       datasets: [{
-        label: '# of Views',
+        label: 'Views',
         data: productViews,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
+        backgroundColor: 'rgba(255, 0, 0, 0.3)',
+        borderColor: 'rgba(255, 0, 20)',
+        borderWidth: 1,
+        borderRadius: 3,
+        hoverBackgroundColor: 'rgba(255, 0, 0, 0.7)',
+        HoverBorderRadius: 3
       },{
-        label: '# of Votes',
+        label: 'Votes',
         data: productVotes,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1
+        backgroundColor: 'rgba(0, 0, 255, 0.3)',
+        borderColor: 'rgba(0, 0, 255',
+        borderWidth: 1,
+        borderRadius: 3,
+        hoverBackgroundColor: 'rgba(0, 0, 255, 0.7)',
+        HoverBorderRadius: 3
       }]
     },
     options: {
+      // indexAxis: 'y',
       scales: [{
         yAxes: {
           beginAtZero: true

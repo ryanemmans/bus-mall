@@ -7,17 +7,18 @@ body * {
 
 body {
   width: 1300px;
-  margin: 20px;
+  margin: 20px auto;
   background-color: rgb(240, 240, 240);
 }
 
 h1 {
-  font-size: 3.6em;
+  font-size: 5em;
+  vertical-align: middle; 
   text-align: center;
-  margin-top: 70px;
+  margin-top: 25px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -2.5px;
+  letter-spacing: -6px;
 }
 
 h2 {
@@ -36,7 +37,8 @@ header, main, footer {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-content: center;
 }
 
 main {
@@ -49,6 +51,10 @@ section {
   justify-content: space-evenly;
 }
 
+#question {
+  margin-bottom: 40px;
+}
+
 #resultsAndChart div {
   /* width: 480px; */
   border: 1px solid rgb(223, 223, 223);
@@ -56,6 +62,11 @@ section {
   text-align: left;
   padding: 20px;
   line-height: 1.5em;
+  margin: 10px;
+}
+
+ul {
+  width: 250px;
 }
 
 main img {
@@ -67,4 +78,5 @@ main img {
 p {
   margin: 20px;
   text-align: left;
+  padding: 0px 40px;
 }
