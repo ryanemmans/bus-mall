@@ -47,8 +47,8 @@ let clickCounter = 25;
 function Product(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
-  this.views = 0;
   this.votes = 0;
+  this.views = 0;
   // Technically this function should not do external processes. It is made to define features of a 'product'
 }
 
@@ -104,20 +104,30 @@ function renderResults() {
 function makeProductChart() {
   let ctx = document.getElementById('productChart').getContext('2d');
   let productNames = [];
-  let productViews = [];
   let productVotes = [];
+  let productViews = [];
   // let colorArray = [];
   for (let product of Product.allProducts) {
     productNames.push(product.name);
-    productViews.push(product.views);
     productVotes.push(product.votes);
+    productViews.push(product.views);
   }
 
-  let chart = new Chart(ctx, {
+  // eslint-disable-next-line no-undef
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: productNames,
       datasets: [{
+        label: 'Votes',
+        data: productVotes,
+        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+        borderColor: 'rgba(0, 0, 0',
+        borderWidth: 1,
+        borderRadius: 3,
+        hoverBackgroundColor: 'rgba(255, 0, 0, 1.0)',
+        HoverBorderRadius: 3
+      }, {
         label: 'Views',
         data: productViews,
         backgroundColor: 'rgba(200, 200, 200, 0.2)',
@@ -125,20 +135,11 @@ function makeProductChart() {
         borderWidth: 1,
         borderRadius: 3,
         hoverBackgroundColor: 'rgba(200, 200, 200, 0.8)',
-        HoverBorderRadius: 3,
-      }, {
-        label: 'Votes',
-        data: productVotes,
-        backgroundColor: 'rgba(255, 0, 0, 0.6)',
-        borderColor: 'rgba(0, 0, 0',
-        borderWidth: 1,
-        borderRadius: 3,
-        hoverBackgroundColor: 'rgba(255, 0, 0, 1.0)',
-        HoverBorderRadius: 3,
+        HoverBorderRadius: 3
       }]
     },
     options: {
-      // indexAxis: 'y',
+      indexAxis: 'y',
       scales: {
         x: {
           beginAtZero: true,
@@ -153,27 +154,27 @@ function makeProductChart() {
   });
 }
 
-function getProductsFromStorage() {
+function getFromStorage() {
   let fromStorage = localStorage.getItem('product');
   if (fromStorage) {
     let parsed = JSON.parse(fromStorage);
-    console.log(parsed);
-    // turn all the objects back into products
-    // parsed is currently an array of plain old js objects that need to become product instances
-    for (let product of parsed) {
-      let newProduct = new Product(product.name, product.imgPath, product.views, product.votes);
+    // console.log(parsed);
+    for (let results of parsed) {
+      let newProduct = new Product(results.name, results.imgPath);
+      newProduct.votes = results.votes;
+      newProduct.views = results.views;
       Product.allProducts.push(newProduct);
-      newProduct.renderProduct();
+      console.log(newProduct);
     }
+  }
+  else {
+    constructAllProducts();
   }
 }
 
-function putProductsInStorage() {
-  // prepare the data to be stored
+function putInStorage() {
   console.log(Product.allProducts);
   let stringifiedArray = JSON.stringify(Product.allProducts);
-  // console.log(stringifiedArray);
-  // store the data in storage with the key product
   localStorage.setItem('product', stringifiedArray);
 }
 
@@ -198,7 +199,7 @@ function handleClick(e) {
     alert('View Results');
     renderResults();
     makeProductChart();
-    putProductsInStorage();
+    putInStorage();
   }
 }
 
@@ -210,29 +211,31 @@ voteSectionElem.addEventListener('click', handleClick);
 
 // ------------------------------------- Call Functions -------------------------------------  //
 
-Product.allProducts.push(new Product('Bag', './img/bag.jpg'));
-Product.allProducts.push(new Product('Banana', './img/banana.jpg'));
-Product.allProducts.push(new Product('Bathroom', './img/bathroom.jpg'));
-Product.allProducts.push(new Product('Boots', './img/boots.jpg'));
-Product.allProducts.push(new Product('Breakfast', './img/breakfast.jpg'));
-Product.allProducts.push(new Product('Bubblegum', './img/bubblegum.jpg'));
-Product.allProducts.push(new Product('Chair', './img/chair.jpg'));
-Product.allProducts.push(new Product('Cthulhu', './img/cthulhu.jpg'));
-Product.allProducts.push(new Product('Dog-Duck', './img/dog-duck.jpg'));
-Product.allProducts.push(new Product('Dragon', './img/dragon.jpg'));
-Product.allProducts.push(new Product('Pen', './img/pen.jpg'));
-Product.allProducts.push(new Product('Pet-Sweep', './img/pet-sweep.jpg'));
-Product.allProducts.push(new Product('Scissors', './img/scissors.jpg'));
-Product.allProducts.push(new Product('Shark', './img/shark.jpg'));
-Product.allProducts.push(new Product('Sweep', './img/sweep.png'));
-Product.allProducts.push(new Product('Tauntaun', './img/tauntaun.jpg'));
-Product.allProducts.push(new Product('Unicorn', './img/unicorn.jpg'));
-Product.allProducts.push(new Product('Water-Can', './img/water-can.jpg'));
-Product.allProducts.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
+function constructAllProducts() {
+  Product.allProducts.push(new Product('Bag', './img/bag.jpg'));
+  Product.allProducts.push(new Product('Banana', './img/banana.jpg'));
+  Product.allProducts.push(new Product('Bathroom', './img/bathroom.jpg'));
+  Product.allProducts.push(new Product('Boots', './img/boots.jpg'));
+  Product.allProducts.push(new Product('Breakfast', './img/breakfast.jpg'));
+  Product.allProducts.push(new Product('Bubblegum', './img/bubblegum.jpg'));
+  Product.allProducts.push(new Product('Chair', './img/chair.jpg'));
+  Product.allProducts.push(new Product('Cthulhu', './img/cthulhu.jpg'));
+  Product.allProducts.push(new Product('Dog-Duck', './img/dog-duck.jpg'));
+  Product.allProducts.push(new Product('Dragon', './img/dragon.jpg'));
+  Product.allProducts.push(new Product('Pen', './img/pen.jpg'));
+  Product.allProducts.push(new Product('Pet-Sweep', './img/pet-sweep.jpg'));
+  Product.allProducts.push(new Product('Scissors', './img/scissors.jpg'));
+  Product.allProducts.push(new Product('Shark', './img/shark.jpg'));
+  Product.allProducts.push(new Product('Sweep', './img/sweep.png'));
+  Product.allProducts.push(new Product('Tauntaun', './img/tauntaun.jpg'));
+  Product.allProducts.push(new Product('Unicorn', './img/unicorn.jpg'));
+  Product.allProducts.push(new Product('Water-Can', './img/water-can.jpg'));
+  Product.allProducts.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
+}
 
+getFromStorage();
 getThreeProducts();
 renderAllProducts();
-getProductsFromStorage();
 
 // console.log(Product.allProducts);
 
