@@ -153,6 +153,30 @@ function makeProductChart() {
   });
 }
 
+function getProductsFromStorage() {
+  let fromStorage = localStorage.getItem('product');
+  if (fromStorage) {
+    let parsed = JSON.parse(fromStorage);
+    console.log(parsed);
+    // turn all the objects back into products
+    // parsed is currently an array of plain old js objects that need to become product instances
+    for (let product of parsed) {
+      let newProduct = new Product(product.name, product.imgPath, product.views, product.votes);
+      Product.allProducts.push(newProduct);
+      newProduct.renderProduct();
+    }
+  }
+}
+
+function putProductsInStorage() {
+  // prepare the data to be stored
+  console.log(Product.allProducts);
+  let stringifiedArray = JSON.stringify(Product.allProducts);
+  // console.log(stringifiedArray);
+  // store the data in storage with the key product
+  localStorage.setItem('product', stringifiedArray);
+}
+
 function handleClick(e) {
   const imageClicked = e.target.id;
   if (imageClicked === 'product_A_img' || imageClicked === 'product_B_img' || imageClicked === 'product_C_img') {
@@ -174,6 +198,7 @@ function handleClick(e) {
     alert('View Results');
     renderResults();
     makeProductChart();
+    putProductsInStorage();
   }
 }
 
@@ -207,6 +232,7 @@ Product.allProducts.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
 
 getThreeProducts();
 renderAllProducts();
+getProductsFromStorage();
 
 // console.log(Product.allProducts);
 

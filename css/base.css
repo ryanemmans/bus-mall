@@ -86,12 +86,15 @@ main img {
   border-radius: 10px;
   border: 1px solid rgb(184, 184, 184);
   box-shadow: 3px 3px 5px lightgray;
+  transition: all 0.15s ease-in-out;
 }
 
 main img:hover {
   border-radius: 10px;
   border: 1px solid black;
-  box-shadow: 0px 0px 2px black
+  box-shadow: 0px 0px 1px black;
+  transform: scale(1.1);
+  transition: all 0.15s ease-in-out;
 }
 
 p {
