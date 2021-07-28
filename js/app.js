@@ -199,11 +199,11 @@ Product.allProducts.push(new Product('Pen', './img/pen.jpg'));
 Product.allProducts.push(new Product('Pet-Sweep', './img/pet-sweep.jpg'));
 Product.allProducts.push(new Product('Scissors', './img/scissors.jpg'));
 Product.allProducts.push(new Product('Shark', './img/shark.jpg'));
+Product.allProducts.push(new Product('Sweep', './img/sweep.png'));
 Product.allProducts.push(new Product('Tauntaun', './img/tauntaun.jpg'));
 Product.allProducts.push(new Product('Unicorn', './img/unicorn.jpg'));
 Product.allProducts.push(new Product('Water-Can', './img/water-can.jpg'));
 Product.allProducts.push(new Product('Wine-Glass', './img/wine-glass.jpg'));
-Product.allProducts.push(new Product('Sweep', './img/sweep.png'));
 
 getThreeProducts();
 renderAllProducts();
