@@ -102,7 +102,7 @@ function renderResults() {
 }
 
 function makeProductChart() {
-  const ctx = document.getElementById('productChart').getContext('2d');
+  let ctx = document.getElementById('productChart').getContext('2d');
   let productNames = [];
   let productViews = [];
   let productVotes = [];
@@ -113,41 +113,42 @@ function makeProductChart() {
     productVotes.push(product.votes);
   }
 
-  const productChart = new Chart(ctx, {
+  let chart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: productNames,
       datasets: [{
         label: 'Views',
         data: productViews,
-        backgroundColor: 'rgba(255, 0, 0, 0.3)',
-        borderColor: 'rgba(255, 0, 20)',
+        backgroundColor: 'rgba(200, 200, 200, 0.2)',
+        borderColor: 'rgba(0, 0, 0)',
         borderWidth: 1,
         borderRadius: 3,
-        hoverBackgroundColor: 'rgba(255, 0, 0, 0.7)',
-        HoverBorderRadius: 3
-      },{
+        hoverBackgroundColor: 'rgba(200, 200, 200, 0.8)',
+        HoverBorderRadius: 3,
+      }, {
         label: 'Votes',
         data: productVotes,
-        backgroundColor: 'rgba(0, 0, 255, 0.3)',
-        borderColor: 'rgba(0, 0, 255',
+        backgroundColor: 'rgba(255, 0, 0, 0.6)',
+        borderColor: 'rgba(0, 0, 0',
         borderWidth: 1,
         borderRadius: 3,
-        hoverBackgroundColor: 'rgba(0, 0, 255, 0.7)',
-        HoverBorderRadius: 3
+        hoverBackgroundColor: 'rgba(255, 0, 0, 1.0)',
+        HoverBorderRadius: 3,
       }]
     },
     options: {
       // indexAxis: 'y',
-      scales: [{
-        yAxes: {
-          beginAtZero: true
+      scales: {
+        x: {
+          beginAtZero: true,
+          stacked: false
         },
-        stacked: false
-      }],
-      xAxes: [{
-        stacked: false
-      }]
+        y: {
+          beginAtZero: true,
+          stacked: false
+        }
+      }
     }
   });
 }
@@ -181,7 +182,6 @@ function handleClick(e) {
 // ------------------------------------- Listener -------------------------------------  //
 
 voteSectionElem.addEventListener('click', handleClick);
-
 
 // ------------------------------------- Call Functions -------------------------------------  //
 

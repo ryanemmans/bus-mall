@@ -2,7 +2,7 @@ body * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  color: rgb(87, 63, 34);
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -18,7 +18,7 @@ h1 {
   margin-top: 25px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -6px;
+  letter-spacing: -4px;
 }
 
 h2 {
