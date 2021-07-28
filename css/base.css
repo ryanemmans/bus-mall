@@ -1,23 +1,24 @@
 body * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.05em;
-  color: rgb(87, 63, 34);
+  font-size: 1em;
+  color: rgb(0, 0, 0);
 }
 
 body {
   width: 1300px;
-  margin: 20px;
+  margin: 20px auto;
   background-color: rgb(240, 240, 240);
 }
 
 h1 {
-  font-size: 3.6em;
+  font-size: 5em;
+  vertical-align: middle; 
   text-align: center;
-  margin-top: 70px;
+  margin-top: 25px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -2.5px;
+  letter-spacing: -4px;
 }
 
 h2 {
@@ -31,12 +32,13 @@ header, main, footer {
   border-radius: 5px;
   border: 1px solid rgb(184, 184, 184);
   padding: 20px;
-  margin: 20px;
+  margin: 20px 0px;
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-content: center;
 }
 
 main {
@@ -49,11 +51,45 @@ section {
   justify-content: space-evenly;
 }
 
-img {
+#question {
+  margin-bottom: 40px;
+}
+
+#resultsAndChart div {
+  /* width: 480px; */
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 5px;
+  text-align: left;
+  padding: 20px;
+  line-height: 1.5em;
+  margin: 10px;
+}
+
+ul {
+  width: 250px;
+}
+
+li {
+  color: red;
+  opacity: 0.6;
+  list-style-type: square;
+  margin-left: 23px;
+}
+
+main img {
   border-radius: 10px;
+  border: 1px solid rgb(184, 184, 184);
+  box-shadow: 3px 3px 5px lightgray;
+}
+
+main img:hover {
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 2px black
 }
 
 p {
   margin: 20px;
   text-align: left;
+  padding: 0px 40px;
 }
