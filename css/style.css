@@ -5,7 +5,7 @@ body * {
 }
 
 body {
-  width: 1270px;
+  width: 1000px;
   margin: 0px auto;
   background-color: white;
 }
@@ -24,14 +24,13 @@ h2 {
   font-size: 1.8em;
   margin: 20px;
   transform: scale(.9, 1);
-  text-align: center;
 }
 
 header, main, footer {
-  width: 1270px;
+  width: 1000px;
   background-color: white;
   /* border-radius: 5px; */
-  padding: 20px;
+  padding: 10px 30px;
   /* margin: 20px 0px; */
 }
 
@@ -44,15 +43,12 @@ header, footer {
   height: 80px;
 }
 
-#bus, #regina {
+#bus {
   height: 60px;
   margin-right: 15px;
-  border-radius: 10px;
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
   background-color: rgb(248, 248, 248);
   border-radius: 4px;
   border: 1px solid rgb(199, 199, 199);
@@ -60,75 +56,14 @@ main {
   font-weight: 500;
 }
 
-/* section {
+section {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-} */
+  justify-content: space-between;
+}
 
 #question {
   margin-bottom: 40px;
-}
-
-aside {
-  width: 200px;
-  height: 600px;
-}
-
-aside, #chart div {
-  /* width: 480px; */
-  border: 1px solid rgb(199, 199, 199);
-  background-color: white;
-  border-radius: 5px;
-  text-align: left;
-  padding: 20px;
-  line-height: 1.5em;
-  margin: 10px;
-}
-
-ul {
-  width: 250px;
-}
-
-li {
-  /* font-size: .9em; */
-  color: red;
-  opacity: 0.5;
-  list-style-type: square;
-  margin-left: -25px;
-  transform: scale(.8, 1);
-  font-size: .95em;
-}
-
-li:hover {
-  color: red;
-  opacity: 1.0;
-  /* font-weight: bold; */
-}
-
-#all_products {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-#productBox {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-#images {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-#productA, #productB, #productC {
-  display: inline;
-  margin: 20px;
-  width: 300px;
-  height: 320px;
 }
 
 main img {
@@ -136,6 +71,7 @@ main img {
   border: 1px solid rgb(184, 184, 184);
   box-shadow: 3px 3px 5px lightgray;
   transition: all 0.15s ease-in-out;
+  width: 292px;
 }
 
 main img:hover {
@@ -161,18 +97,48 @@ main img:hover {
   100% {transform: scale(1, 1) translateY(0);}
 } */
 
-#chart {
+#list {
+  width: 260px;
+}
+
+#resultsAndChart {
   display: flex;
-  flex-direction: column;
-  width: 1000px;
-  margin: -120px 0px 0px 230px;
-  /* flex-wrap: nowrap; */
+  justify-content: space-evenly;
+}
+
+
+#resultsAndChart div {
+  border: 1px solid rgb(199, 199, 199);
+  background-color: white;
+  border-radius: 5px;
+  text-align: left;
+  padding: 20px;
+  line-height: 1.5em;
+  margin: 15px;
+}
+
+ul {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+li {
+  color: red;
+  opacity: 0.5;
+  list-style-type: square;
+  margin-left: -10px;
+  transform: scale(.8, 1);
+  font-size: 1.05em;
+}
+
+li:hover {
+  color: red;
+  opacity: 1.0;
 }
 
 p {
-  margin: 20px;
-  text-align: left;
-  /* padding: 0px 40px; */
+  margin: 20px 0px;
+  text-align: justify;
   transform: scale(.9, 1);
   font-size: 1.2em;
   line-height: 1.2em;

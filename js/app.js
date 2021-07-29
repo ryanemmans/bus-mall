@@ -139,7 +139,7 @@ function makeProductChart() {
       }]
     },
     options: {
-      // indexAxis: 'y',
+      indexAxis: 'y',
       scales: {
         x: {
           beginAtZero: true,
