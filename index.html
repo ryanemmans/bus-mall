@@ -7,48 +7,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bus Mall</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/base.css">
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <!-- <link rel="stylesheet" href="./css/base.css"> -->
   <!-- <link rel="stylesheet" href="./css/layout.css">
   <link rel="stylesheet" href="./css/module.css"> -->
   <!-- <link rel="stylesheet" href="./css/themes.css"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <img src="./img/bus2.jpg" alt="Bus Mall">
-    <h1>Bus&nbsp;&nbsp;&nbsp;Mall</h1>
-    <img src="./img/mean-girls.jpg" alt="Regina George">
+  <header id="A">
+    <img id="bus" src="./img/bus2.jpg" alt="Bus Mall">
+    <h1>Bus&nbsp;&nbsp;Mall</h1>
   </header>
 
   <main>
+    <aside id="B">
+      <h2>Results:</h2>
+      <!-- <button type="submit">View Results</button> -->
+      <!-- <div id="button"></div> -->
+      <ul id="results"></ul>
+    </aside>
+    
     <h2 id="question">Which product are you most likely to purchase?</h2>
     <section id="all_products">
 
       <div id="productA">
-        <img id="product_A_img" src="./img/pet-sweep.jpg" alt="Product A">
-        <h2 id="product_A_h2">Pet Sweep</h2>
+        <img id="product_A_img" src="" alt="Product A">
+        <h2 id="product_A_h2"></h2>
       </div>
 
       <div id="productB">
-        <img id="product_B_img" src="./img/shark.jpg" alt="Product B">
-        <h2 id="product_B_h2">Shark Sleeping Bag</h2>
+        <img id="product_B_img" src="" alt="Product B">
+        <h2 id="product_B_h2"></h2>
       </div>
 
       <div id="productC">
-        <img id="product_C_img" src="./img/banana.jpg" alt="Product C">
-        <h2 id="product_C_h2">Banana Slicer</h2>
+        <img id="product_C_img" src="" alt="Product C">
+        <h2 id="product_C_h2"></h2>
       </div>
     </section>
     <section id="resultsAndChart">
-      <div>
-        <h2>Results:</h2>
-        <!-- <button type="submit">View Results</button> -->
-        <!-- <div id="button"></div> -->
-        <ul id="results"></ul>
-      </div>
+      
       <div>
         <canvas id="productChart" width="850" height="550"></canvas>
       </div>
@@ -68,6 +71,7 @@
   </main>
 
   <footer>
+    <img id="regina" src="./img/mean-girls.jpg" alt="Regina George">
     <h4>&#169; Code Fellows 2021 // <a href=" https://github.com/ryanemmans">Github
         Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
   </footer>

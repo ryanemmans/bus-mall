@@ -25,5 +25,7 @@ You are also responsible for the look and feel of the app, so don’t forget a c
 - [w3schools](https://www.w3schools.com/)
 - [stack overflow](https://stackoverflow.com/)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- [CSS Tricks](https://css-tricks.com/making-css-animations-feel-natural/)
+
 
 ### Reflections and Comments
