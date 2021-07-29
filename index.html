@@ -8,10 +8,10 @@
   <title>Bus Mall</title>
   <link rel="stylesheet" href="./css/reset.css">
   <!-- <link rel="stylesheet" href="./css/style.css"> -->
-  <!-- <link rel="stylesheet" href="./css/base.css"> -->
-  <!-- <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/module.css"> -->
-  <!-- <link rel="stylesheet" href="./css/themes.css"> -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/module.css">
+  <link rel="stylesheet" href="./css/themes.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
@@ -19,62 +19,60 @@
 </head>
 
 <body>
-  <header id="A">
-    <img id="bus" src="./img/bus2.jpg" alt="Bus Mall">
-    <h1>Bus&nbsp;&nbsp;Mall</h1>
-  </header>
-
+  <header></header>
   <main>
+    <nav id="A">
+      <img id="bus" src="./img/bus2.jpg" alt="Bus Mall">
+      <h1>Bus&nbsp;&nbsp;Mall</h1>
+    </nav>
+
     <aside id="B">
       <h2>Results:</h2>
       <!-- <button type="submit">View Results</button> -->
       <!-- <div id="button"></div> -->
       <ul id="results"></ul>
     </aside>
-    
-    <h2 id="question">Which product are you most likely to purchase?</h2>
-    <section id="all_products">
 
-      <div id="productA">
+    <article id="all_products">
+      <h2 id="question">Which product are you most likely to purchase?</h2>
+      <div id="productA" class="small-div">
         <img id="product_A_img" src="" alt="Product A">
         <h2 id="product_A_h2"></h2>
       </div>
-
-      <div id="productB">
+      <div id="productB" class="small-div">
         <img id="product_B_img" src="" alt="Product B">
         <h2 id="product_B_h2"></h2>
       </div>
-
-      <div id="productC">
+      <div id="productC" class="small-div">
         <img id="product_C_img" src="" alt="Product C">
         <h2 id="product_C_h2"></h2>
       </div>
-    </section>
-    <section id="resultsAndChart">
-      
-      <div>
-        <canvas id="productChart" width="850" height="550"></canvas>
+      <div id="chart" class="large-div">
+        <canvas id="productChart" width="780" height="500"></canvas>
       </div>
-    </section>
-    <article id="E">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus ut impedit dignissimos numquam sunt
-        reiciendis eligendi commodi dolores. Autem repellendus nihil ex dolor doloremque unde voluptatum iusto rem
-        consectetur.</p>
-
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi accusantium corrupti suscipit voluptatem autem
-        earum sit facere fugiat neque, optio magnam rerum dolores odio quod quos exercitationem alias a temporibus.</p>
-
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio in quo error enim repellendus quidem
-        voluptatibus repellat reprehenderit maxime ipsam, recusandae, illo impedit labore inventore, neque saepe nam
-        veritatis ducimus?</p>
     </article>
-  </main>
 
-  <footer>
-    <img id="regina" src="./img/mean-girls.jpg" alt="Regina George">
-    <h4>&#169; Code Fellows 2021 // <a href=" https://github.com/ryanemmans">Github
-        Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
-  </footer>
+      <article id="G" class="large-article">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus ut impedit dignissimos numquam sunt
+          reiciendis eligendi commodi dolores. Autem repellendus nihil ex dolor doloremque unde voluptatum iusto rem
+          consectetur.</p>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi accusantium corrupti suscipit voluptatem
+          autem
+          earum sit facere fugiat neque, optio magnam rerum dolores odio quod quos exercitationem alias a temporibus.
+        </p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio in quo error enim repellendus quidem
+          voluptatibus repellat reprehenderit maxime ipsam, recusandae, illo impedit labore inventore, neque saepe nam
+          veritatis ducimus?</p>
+      </article>
+      <div id="H">
+        <img id="regina" src="./img/mean-girls.jpg" alt="Regina George">
+        <h4>&#169; Code Fellows 2021 // <a href=" https://github.com/ryanemmans">Github
+            Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
+      </div>
+  </main>
+  <footer></footer>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
   <script src="./js/app.js"></script>
 </body>
