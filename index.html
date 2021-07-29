@@ -7,23 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bus Mall</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- <link rel="stylesheet" href="./css/base.css"> -->
   <!-- <link rel="stylesheet" href="./css/layout.css">
   <link rel="stylesheet" href="./css/module.css"> -->
   <!-- <link rel="stylesheet" href="./css/themes.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <img src="./img/bus2.jpg" alt="Bus Mall">
-    <h1>Bus&nbsp;&nbsp;&nbsp;Mall</h1>
-    <img src="./img/mean-girls.jpg" alt="Regina George">
+    <img id="bus" src="./img/bus2.jpg" alt="Bus Mall">
+    <h1>Bus&nbsp;&nbsp;Mall</h1>
   </header>
 
   <main>
     <h2 id="question">Which product are you most likely to purchase?</h2>
     <section id="all_products">
-
       <div id="productA">
         <img id="product_A_img" src="./img/pet-sweep.jpg" alt="Product A">
         <h2 id="product_A_h2">Pet Sweep</h2>
@@ -40,17 +43,17 @@
       </div>
     </section>
     <section id="resultsAndChart">
-      <div>
+      <div id="list">
         <h2>Results:</h2>
         <!-- <button type="submit">View Results</button> -->
         <!-- <div id="button"></div> -->
         <ul id="results"></ul>
       </div>
       <div>
-        <canvas id="productChart" width="850" height="550"></canvas>
+        <canvas id="productChart" width="610" height="524"></canvas>
       </div>
     </section>
-    <article id="E">
+    <article>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus ut impedit dignissimos numquam sunt
         reiciendis eligendi commodi dolores. Autem repellendus nihil ex dolor doloremque unde voluptatum iusto rem
         consectetur.</p>
@@ -66,8 +69,8 @@
 
   <footer>
     <h4>&#169; Code Fellows 2021 // <a href=" https://github.com/ryanemmans">Github
-        Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
-  </footer>
+      Portfolio</a> // <a href="https://www.linkedin.com/in/ryanemmans/">LinkedIn</a></h4>
+    </footer>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
   <script src="./js/app.js"></script>
 </body>
