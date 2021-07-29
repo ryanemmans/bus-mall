@@ -5,7 +5,7 @@ body * {
 }
 
 body {
-  width: 1300px;
+  width: 1270px;
   margin: 0px auto;
   background-color: white;
 }
@@ -24,10 +24,11 @@ h2 {
   font-size: 1.8em;
   margin: 20px;
   transform: scale(.9, 1);
+  text-align: center;
 }
 
 header, main, footer {
-  width: 1300px;
+  width: 1270px;
   background-color: white;
   /* border-radius: 5px; */
   padding: 20px;
@@ -38,7 +39,7 @@ header, footer {
   background-color: white;
   border: none;
   display: flex;
-  justify-content: space-left;
+  justify-content: left;
   align-items: center;
   height: 80px;
 }
@@ -50,6 +51,8 @@ header, footer {
 }
 
 main {
+  display: flex;
+  flex-wrap: wrap;
   background-color: rgb(248, 248, 248);
   border-radius: 4px;
   border: 1px solid rgb(199, 199, 199);
@@ -57,17 +60,22 @@ main {
   font-weight: 500;
 }
 
-section {
+/* section {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
+} */
 
 #question {
   margin-bottom: 40px;
 }
 
-#resultsAndChart div {
+aside {
+  width: 200px;
+  height: 600px;
+}
+
+aside, #chart div {
   /* width: 480px; */
   border: 1px solid rgb(199, 199, 199);
   background-color: white;
@@ -87,15 +95,40 @@ li {
   color: red;
   opacity: 0.5;
   list-style-type: square;
-  /* margin-left: 20px; */
-  transform: scale(.9, 1);
-  font-size: 1.08em;
+  margin-left: -25px;
+  transform: scale(.8, 1);
+  font-size: .95em;
 }
 
 li:hover {
   color: red;
   opacity: 1.0;
   /* font-weight: bold; */
+}
+
+#all_products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#productBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#productA, #productB, #productC {
+  display: inline;
+  margin: 20px;
+  width: 300px;
+  height: 320px;
 }
 
 main img {
@@ -127,6 +160,14 @@ main img:hover {
   64% {transform: scale(1, 1) translateY(0);}
   100% {transform: scale(1, 1) translateY(0);}
 } */
+
+#chart {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: -120px 0px 0px 230px;
+  /* flex-wrap: nowrap; */
+}
 
 p {
   margin: 20px;
