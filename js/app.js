@@ -114,7 +114,7 @@ function makeProductChart() {
   }
 
   // eslint-disable-next-line no-undef
-  new Chart(ctx, {
+  let productChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: productNames,
@@ -195,11 +195,23 @@ function handleClick(e) {
     renderAllProducts();
   }
   if (clickCounter === 0) {
+    // alert('View Results');
+    voteSectionElem.textContent = '';
+    let buttonElem = document.createElement('button');
+    buttonElem.id = 'buttonSubmit';
+    buttonElem.textContent = 'View Results';
+    voteSectionElem.appendChild(buttonElem);
     voteSectionElem.removeEventListener('click', handleClick);
-    alert('View Results');
+  }
+}
+
+function handleButton(e) {
+  let buttonClicked = e.target.id;
+  if (buttonClicked === 'buttonSubmit') {
     renderResults();
     makeProductChart();
     putInStorage();
+    voteSectionElem.removeEventListener('click', handleButton);
   }
 }
 
@@ -208,6 +220,8 @@ function handleClick(e) {
 // ------------------------------------- Listener -------------------------------------  //
 
 voteSectionElem.addEventListener('click', handleClick);
+
+voteSectionElem.addEventListener('click', handleButton);
 
 // ------------------------------------- Call Functions -------------------------------------  //
 

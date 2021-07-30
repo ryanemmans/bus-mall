@@ -72,6 +72,7 @@ main img {
   box-shadow: 3px 3px 5px lightgray;
   transition: all 0.15s ease-in-out;
   width: 292px;
+  margin: 15px;
 }
 
 main img:hover {
@@ -97,8 +98,50 @@ main img:hover {
   100% {transform: scale(1, 1) translateY(0);}
 } */
 
+#all_products {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+ul {
+  width: 280px;
+  margin-bottom: 20px;
+}
+
+li {
+  color: #FF6666;
+  list-style-type: square;
+  margin-left: -5px;
+  transform: scale(.8, 1);
+  font-size: 1.15em;
+}
+
+li:hover {
+  color: red;
+}
+
+button {
+  width: 210px;
+  height: 70px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  background-color: #FF6666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #FF4444;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
 #list {
-  width: 260px;
+  width: 292px;
 }
 
 #resultsAndChart {
@@ -115,25 +158,6 @@ main img:hover {
   padding: 20px;
   line-height: 1.5em;
   margin: 15px;
-}
-
-ul {
-  width: 250px;
-  margin-bottom: 10px;
-}
-
-li {
-  color: red;
-  opacity: 0.5;
-  list-style-type: square;
-  margin-left: -10px;
-  transform: scale(.8, 1);
-  font-size: 1.05em;
-}
-
-li:hover {
-  color: red;
-  opacity: 1.0;
 }
 
 p {
