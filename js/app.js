@@ -2,7 +2,7 @@
 // 1. Display 3 products to pick a favorite
 
 // Create constructor function that creates object for each product
-// Has following properties: name, image file path, times image has been shown
+// Has following properties: name, image file path, times voted, times shown
 
 // Randomly generate 3 unique product images displayed side-by-side
 
@@ -10,7 +10,7 @@
 
 // Attach event listener to HTML where images will be displayed
 
-// Once user clicks a product, display 3 new products
+// 1. Once user clicks a product, display 3 new products
 
 // 2. Define property for # of times a product has been clicked in constructor
 // Update this property after each selection
@@ -21,7 +21,7 @@
 // Attach property to constructor that keeps track of all products
 // Remove event listener after all rounds have completed
 
-// ADD A BUTTON with the text "View Results" which will display all products, votes, and # of times seen
+// Add a button with the text "View Results" which will display all products, votes, and # of times seen
 // Example: banana had 3 votes, and was seen 5 times.
 
 'use strict';
@@ -49,7 +49,6 @@ function Product(name, imgPath) {
   this.imgPath = imgPath;
   this.votes = 0;
   this.views = 0;
-  // Technically this function should not do external processes. It is made to define features of a 'product'
 }
 
 Product.allProducts = [];
@@ -106,14 +105,13 @@ function makeProductChart() {
   let productNames = [];
   let productVotes = [];
   let productViews = [];
-  // let colorArray = [];
   for (let product of Product.allProducts) {
     productNames.push(product.name);
     productVotes.push(product.votes);
     productViews.push(product.views);
   }
 
-  // eslint-disable-next-line no-undef
+  // eslint-disable-next-line no-unused-vars, no-undef
   let productChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -214,8 +212,6 @@ function handleButton(e) {
     voteSectionElem.removeEventListener('click', handleButton);
   }
 }
-
-// BUTTON possibilities: hidden visibility, css class attribute, listener turn button on
 
 // ------------------------------------- Listener -------------------------------------  //
 
